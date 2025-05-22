@@ -195,7 +195,7 @@ foreach ($user in $users) {
 $output = @{
     data = @{
         login_data = $out
-        hostname = $hostname
+        hostname = $hostnameD
         ws1_registredon = $ws1_registredon
         current_logged_in_user = $loggedInUsers
         os_type = $os_type
@@ -203,5 +203,5 @@ $output = @{
 }
 
 $jsonData = $output | ConvertTo-Json -Depth 3
-$webhookURL = "https://hooks.eu.torq.io/v1/webhooks/fee383c3-e6ba-4914-9d45-1fe97de5c19a"  # Replace with your actual webhook URL
+$webhookURL = ""  # Replace with your actual webhook URL
 Invoke-RestMethod -Uri $webhookURL -Method Post -Body $jsonData -ContentType "application/json"
